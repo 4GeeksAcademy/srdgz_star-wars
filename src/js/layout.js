@@ -3,10 +3,10 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import ScrollToTop from "./component/scrollToTop";
 import injectContext from "./store/appContext";
 
-import { Home } from "./views/home";
-import { SingleCharacter } from "./views/characters";
-import { SinglePlanet } from "./views/planets";
-import { SingleStarship } from "./views/starships";
+import Home from "./views/home";
+import { SingleCharacter } from "./views/SingleCharacter";
+import { SinglePlanet } from "./views/SinglePlanet";
+import { SingleStarship } from "./views/SingleStarship";
 import { Navbar } from "./component/navbar";
 import { Footer } from "./component/footer";
 

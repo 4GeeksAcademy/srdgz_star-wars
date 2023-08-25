@@ -1,36 +1,35 @@
 import React, { useState, useEffect, useContext } from "react";
 import "../../styles/home.css";
-import { Card } from "../component/cardCharacter";
+import { CardCharacter } from "../component/cardCharacter";
 import { CardPlanet } from "../component/cardPlanet";
 import { CardStarship } from "../component/cardStarship";
-import { Favorites } from "../component/favorites";
 import { Context } from "../store/appContext.js";
 
-export const Home = () => {
+export default function Home() {
   const { store, actions } = useContext(Context);
   const [state, setState] = useState({});
   useEffect(() => {
     actions.getCharacter();
     actions.getPlanet();
-    actions.getStarchip();
+    actions.getStarship();
   }, []);
 
   return (
-    <div className="">
-      <div className=" ms-4 p-1">
+    <div className="container">
+      <div className="m-5 d-grid justify-content-center">
         <h1 className="text-danger m-3">Characters</h1>
         <div
           id="chacarter-container"
-          className="d-flex overflow-auto col-6 w-75"
+          className="d-flex overflow-auto col-6 w-100"
         >
           {store.character.map((item, index) => (
-            <Card key={index} name={item.name} id={item.uid} />
+            <CardCharacter key={index} name={item.name} id={item.uid} />
           ))}
         </div>
       </div>
-      <div className="ms-4 p-1">
+      <div className="m-5 d-grid justify-content-center">
         <h1 className="text-danger m-3">Planets</h1>
-        <div id="planet-container" className="d-flex overflow-auto col-6 w-75">
+        <div id="planet-container" className="d-flex overflow-auto col-6 w-100">
           {store.planet.map((item, index) => (
             <CardPlanet
               key={index}
@@ -40,11 +39,11 @@ export const Home = () => {
           ))}
         </div>
       </div>
-      <div className="ms-4 p-1">
+      <div className="m-5 d-grid justify-content-center">
         <h1 className="text-danger m-3 ">Starships</h1>
         <div
           id="starship-container"
-          className="d-flex overflow-auto col-6 w-75"
+          className="d-flex overflow-auto col-6 w-100"
         >
           {store.starship.map((item, index) => (
             <CardStarship
@@ -57,4 +56,4 @@ export const Home = () => {
       </div>
     </div>
   );
-};
+}

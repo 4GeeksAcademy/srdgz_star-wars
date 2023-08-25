@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect } from "react";
+import React, { useContext, useState } from "react";
 import "../../styles/home.css";
 import { Link } from "react-router-dom";
 import { Context } from "../store/appContext.js";
@@ -9,7 +9,7 @@ export const CardCharacter = (props) => {
 
   function sendFavorite(e) {
     e.preventDefault();
-    actions.sendFavorite(props.name);
+    actions.addFavorite(props.name);
   }
 
   function singleCharacter(e) {
@@ -17,19 +17,20 @@ export const CardCharacter = (props) => {
   }
 
   return (
-    <div className="">
-      <div className="card" style={{ width: 280 }}>
+    <div className="card-container my-2">
+      <div className="card m-3" style={{ width: 300 }}>
         <img
-          src="https://parade.com/.image/t_share/MTkwNTgxMzUwMjEwMjgzMzg4/star-wars-characters-grogu-baby-yoda.jpg"
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQl8EsOSt7sJj7GSmaBp5PFYpH9KTfz2ZPbKw&usqp=CAU"
           className="card-img-top"
+          style={{ width: 300, height: 200 }}
         />
         <div className="card-body">
-          <h5 className="card-title"> {props.name}</h5>
+          <h5 className="card-title">{props.name}</h5>
           <p className="card-text m-0 p-0">Gender:</p>
-          <p className="card-text m-0 p-0">Hair_color:</p>
-          <p className="card-text m-0 p-0">Eye_color:</p>
+          <p className="card-text m-0 p-0">Hair color:</p>
+          <p className="card-text m-0 p-0">Eye-color:</p>
           <div className="d-flex justify-content-between">
-            <Link to={"/Characters/" + props.name + "/" + props.id}>
+            <Link to={"/SingleCharacter/" + props.name + "/" + props.id}>
               <button
                 href="#"
                 onClick={singleCharacter}
@@ -43,9 +44,8 @@ export const CardCharacter = (props) => {
               href="#"
               className="btn btn-outline-warning"
             >
-              {" "}
-              <i className="fa fa-heart" />{" "}
-            </a>{" "}
+              <i className="fa-regular fa-heart" />
+            </a>
           </div>
         </div>
       </div>

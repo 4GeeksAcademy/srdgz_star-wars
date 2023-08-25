@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect } from "react";
+import React, { useContext, useState } from "react";
 import "../../styles/home.css";
 import { Link } from "react-router-dom";
 import { Context } from "../store/appContext.js";
@@ -17,11 +17,12 @@ export const CardStarship = (props) => {
   }
 
   return (
-    <div className="">
-      <div className="card" style={{ width: 280 }}>
+    <div className="card-container my-2">
+      <div className="card m-3" style={{ width: 300 }}>
         <img
-          src="https://oyster.ignimgs.com/mediawiki/apis.ign.com/star-wars-episode-7/7/7f/Vehicles.png"
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQVqlUJCLDmXfMST49-26E2olfwMGL9KjFa-A&usqp=CAU"
           className="card-img-top"
+          style={{ width: 300, height: 200 }}
         />
         <div className="card-body">
           <h5 className="card-title"> {props.nameStarship} </h5>
@@ -29,7 +30,9 @@ export const CardStarship = (props) => {
           <p className="card-text m-0 p-0">Model:</p>
           <div className="d-flex justify-content-between">
             <Link
-              to={"/Starships/" + props.nameStarship + "/" + props.idStarship}
+              to={
+                "/SingleStarship/" + props.nameStarship + "/" + props.idStarship
+              }
             >
               <button
                 href="#"
@@ -44,8 +47,8 @@ export const CardStarship = (props) => {
               href="#"
               className="btn btn-outline-warning"
             >
-              <i className="fa fa-heart" />
-            </a>{" "}
+              <i className="fa-regular fa-heart" />
+            </a>
           </div>
         </div>
       </div>

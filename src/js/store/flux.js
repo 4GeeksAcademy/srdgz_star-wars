@@ -12,19 +12,19 @@ const getState = ({ getStore, getActions, setStore }) => {
     actions: {
       // Use getActions to call a function within a fuction
       getCharacter: () => {
-        fetch("https://www.swapi.tech/api/people")
+        fetch("https://www.swapi.tech/api/people/")
           .then((response) => response.json())
           .then((data) => setStore({ character: data.results }))
           .catch((err) => console.log(err));
       },
       getPlanet: () => {
-        fetch("https://www.swapi.tech/api/planets")
+        fetch("https://www.swapi.tech/api/planets/")
           .then((response) => response.json())
           .then((data) => setStore({ planet: data.results }))
           .catch((err) => console.log(err));
       },
       getStarship: () => {
-        fetch("https://www.swapi.tech/api/starships")
+        fetch("https://www.swapi.tech/api/starships/")
           .then((response) => response.json())
           .then((data) => setStore({ starship: data.results }))
           .catch((err) => console.log(err));
@@ -52,15 +52,11 @@ const getState = ({ getStore, getActions, setStore }) => {
           .then((response) => response.json())
           .then((data) => setStore({ singlePlanet: data.result.properties }))
           .catch((err) => console.log(err));
-        console.log(idPlanet);
       },
       singleStarship: (idStarship) => {
-        fetch("https://www.swapi.tech/api/starships" + idStarship)
+        fetch("https://www.swapi.tech/api/starships/" + idStarship)
           .then((response) => response.json())
-          .then((data) => {
-            const { properties } = data.result;
-            setStore({ singleStarship: properties });
-          })
+          .then((data) => setStore({ singleStarship: data.result.properties }))
           .catch((err) => console.log(err));
       },
     },

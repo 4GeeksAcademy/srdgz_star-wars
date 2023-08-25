@@ -26,22 +26,27 @@ export const Navbar = () => {
           />
         </span>
       </Link>
-      <div className="ml-auto">
+      <div className="ms-auto">
         <div className="dropdown">
-          <a
+          <button
             className="btn btn-primary dropdown-toggle mx-5 my-3"
-            role="button"
+            type="button"
             data-bs-toggle="dropdown"
+            data-bs-auto-close="outside"
             aria-expanded="false"
           >
             Favorites {counterFavorites()}
-          </a>
+          </button>
           <ul className="dropdown-menu">
             <li>
               <span className="dropdown-item">
-                {store.favoritesList.map((item, index) => (
-                  <Favorites key={index} name={item} />
-                ))}
+                {store.favoritesList.length > 0 ? (
+                  store.favoritesList.map((item, index) => (
+                    <Favorites key={index} name={item} />
+                  ))
+                ) : (
+                  <span>Empty</span>
+                )}
               </span>
             </li>
           </ul>

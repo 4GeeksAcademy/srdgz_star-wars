@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect } from "react";
+import React, { useContext, useState } from "react";
 import "../../styles/home.css";
 import { Link } from "react-router-dom";
 import { Context } from "../store/appContext.js";
@@ -16,18 +16,21 @@ export const CardPlanet = (props) => {
   }
 
   return (
-    <div className="">
-      <div className="card" style={{ width: 280 }}>
+    <div className="card-container my-2">
+      <div className="card m-3" style={{ width: 300 }}>
         <img
-          src="https://reviewsyouread.files.wordpress.com/2021/03/10-more-star-wars-planets-as-countries.png"
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSqh7hedjKnYPNr4V4fzhWfbAXj8GpVW3VP_w&usqp=CAU"
           className="card-img-top"
+          style={{ width: 300, height: 200 }}
         />
         <div className="card-body">
           <h5 className="card-title"> {props.namePlanet} </h5>
           <p className="card-text m-0 p-0">Population:</p>
           <p className="card-text m-0 p-0">Terrain:</p>
           <div className="d-flex justify-content-between">
-            <Link to={"/Planets/" + props.namePlanet + "/" + props.idPlanet}>
+            <Link
+              to={"/SinglePlanet/" + props.namePlanet + "/" + props.idPlanet}
+            >
               <button
                 href="#"
                 className="btn btn-outline-primary"
@@ -41,8 +44,8 @@ export const CardPlanet = (props) => {
               href="#"
               className="btn btn-outline-warning"
             >
-              <i className="fa fa-heart" />
-            </a>{" "}
+              <i className="fa-regular fa-heart" />
+            </a>
           </div>
         </div>
       </div>
