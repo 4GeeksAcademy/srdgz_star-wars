@@ -5,25 +5,25 @@ const getState = ({ getStore, getActions, setStore }) => {
       planet: [{}],
       starship: [{}],
       favoritesList: [],
-      singleCharacter: [{}],
-      singlePlanet: [{}],
-      singleStarship: [{}],
+      DetailCharacter: [{}],
+      DetailPlanet: [{}],
+      DetailStarship: [{}],
     },
     actions: {
       // Use getActions to call a function within a fuction
-      getCharacter: () => {
+      getCharacters: () => {
         fetch("https://www.swapi.tech/api/people/")
           .then((response) => response.json())
           .then((data) => setStore({ character: data.results }))
           .catch((err) => console.log(err));
       },
-      getPlanet: () => {
+      getPlanets: () => {
         fetch("https://www.swapi.tech/api/planets/")
           .then((response) => response.json())
           .then((data) => setStore({ planet: data.results }))
           .catch((err) => console.log(err));
       },
-      getStarship: () => {
+      getStarships: () => {
         fetch("https://www.swapi.tech/api/starships/")
           .then((response) => response.json())
           .then((data) => setStore({ starship: data.results }))
@@ -41,22 +41,22 @@ const getState = ({ getStore, getActions, setStore }) => {
         );
         setStore({ favoritesList: newList });
       },
-      singleCharacter: (idCharacter) => {
+      DetailCharacter: (idCharacter) => {
         fetch("https://www.swapi.tech/api/people/" + idCharacter)
           .then((response) => response.json())
-          .then((data) => setStore({ singleCharacter: data.result.properties }))
+          .then((data) => setStore({ DetailCharacter: data.result.properties }))
           .catch((err) => console.log(err));
       },
-      singlePlanet: (idPlanet) => {
+      DetailPlanet: (idPlanet) => {
         fetch("https://www.swapi.tech/api/planets/" + idPlanet)
           .then((response) => response.json())
-          .then((data) => setStore({ singlePlanet: data.result.properties }))
+          .then((data) => setStore({ DetailPlanet: data.result.properties }))
           .catch((err) => console.log(err));
       },
-      singleStarship: (idStarship) => {
+      DetailStarship: (idStarship) => {
         fetch("https://www.swapi.tech/api/starships/" + idStarship)
           .then((response) => response.json())
-          .then((data) => setStore({ singleStarship: data.result.properties }))
+          .then((data) => setStore({ DetailStarship: data.result.properties }))
           .catch((err) => console.log(err));
       },
     },

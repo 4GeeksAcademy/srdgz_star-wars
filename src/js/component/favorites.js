@@ -1,6 +1,5 @@
 import React, { useContext, useState } from "react";
 import "../../styles/home.css";
-
 import { Context } from "../store/appContext.js";
 
 export const Favorites = (props) => {

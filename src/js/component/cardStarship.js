@@ -12,8 +12,8 @@ export const CardStarship = (props) => {
     actions.addFavorite(props.nameStarship);
   }
 
-  function singleStarship(e) {
-    actions.singleStarship(props.idStarship);
+  function DetailStarship(e) {
+    actions.DetailStarship(props.idStarship);
   }
 
   return (
@@ -31,13 +31,13 @@ export const CardStarship = (props) => {
           <div className="d-flex justify-content-between">
             <Link
               to={
-                "/SingleStarship/" + props.nameStarship + "/" + props.idStarship
+                "/DetailStarship/" + props.nameStarship + "/" + props.idStarship
               }
             >
               <button
                 href="#"
                 className="btn btn-outline-primary"
-                onClick={singleStarship}
+                onClick={DetailStarship}
               >
                 Learn more!
               </button>

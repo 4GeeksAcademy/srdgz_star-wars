@@ -9,9 +9,9 @@ export default function Home() {
   const { store, actions } = useContext(Context);
   const [state, setState] = useState({});
   useEffect(() => {
-    actions.getCharacter();
-    actions.getPlanet();
-    actions.getStarship();
+    actions.getCharacters();
+    actions.getPlanets();
+    actions.getStarships();
   }, []);
 
   return (

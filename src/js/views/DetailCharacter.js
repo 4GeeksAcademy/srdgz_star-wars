@@ -4,19 +4,18 @@ import { Link, useParams } from "react-router-dom";
 import { Context } from "../store/appContext";
 import "../../styles/home.css";
 
-export const SinglePlanet = (props) => {
+export const DetailCharacter = (props) => {
   const { store, actions } = useContext(Context);
   const params = useParams();
   useEffect(() => {
-    actions.singlePlanet(params.idPlanet);
+    actions.DetailCharacter(params.id);
   }, []);
-  console.log(store.singlePlanet.name);
 
   return (
     <div className="w-100 h-100">
       <div className="d-flex w-80 m-5 p-5 border-bottom border-danger">
         <img
-          src="https://i.blogs.es/7de56b/650_1200/1366_2000.jpeg"
+          src="https://lumiere-a.akamaihd.net/v1/images/starwars_e58d682b.png?region=0,14,768,432"
           className=""
           style={{ width: 450 }}
         />
@@ -45,50 +44,46 @@ export const SinglePlanet = (props) => {
             Name
           </th>
           <th className="text-danger col-1 mx-3 fw-bold fs-5 text-center">
-            Diameter
+            Birth year
           </th>
           <th className="text-danger col-1 mx-3 fw-bold fs-5 text-center">
-            Climate
+            Gender
           </th>
           <th className="text-danger col-1 mx-3 fw-bold fs-5 text-center">
-            Terrain
+            Height
           </th>
           <th className="text-danger col-1 mx-3 fw-bold fs-5 text-center">
-            Population
+            Skin Color
           </th>
           <th className="text-danger col-1 mx-3 fw-bold fs-5 text-center">
-            Gravity
+            Eye Color
           </th>
         </tr>
         <tr className="d-flex w-100 justify-content-center">
           <td className="col-1 text-danger mx-3 fs-5 text-center">
-            {store.singlePlanet.name}
+            {store.DetailCharacter.name}
           </td>
           <td className="col-1 text-danger mx-3 fs-5 text-center">
-            {store.singlePlanet.diameter}
+            {store.DetailCharacter.birth_year}
           </td>
           <td className="col-1 text-danger mx-3 fs-5 text-center">
-            {store.singlePlanet.climate}
+            {store.DetailCharacter.gender}
           </td>
           <td className="col-1 text-danger mx-3 fs-5 text-center">
-            {store.singlePlanet.terrain}
+            {store.DetailCharacter.height}
           </td>
           <td className="col-1 text-danger mx-3 fs-5 text-center">
-            {store.singlePlanet.population}
+            {store.DetailCharacter.skin_color}
           </td>
           <td className="col-1 text-danger mx-3 fs-5 text-center">
-            {store.singlePlanet.gravity}
+            {store.DetailCharacter.eye_color}
           </td>
         </tr>
       </div>
 
       <div className="d-flex m-5">
         <Link to="/">
-          <button
-            className="btn btn-primary btn-lg mt-5"
-            href="#"
-            role="button"
-          >
+          <button className="btn btn-primary btn-lg m-5" href="#" role="button">
             Go back
           </button>
         </Link>
@@ -97,6 +92,6 @@ export const SinglePlanet = (props) => {
   );
 };
 
-SinglePlanet.propTypes = {
+DetailCharacter.propTypes = {
   match: PropTypes.object,
 };

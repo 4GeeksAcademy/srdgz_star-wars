@@ -4,9 +4,9 @@ import ScrollToTop from "./component/scrollToTop";
 import injectContext from "./store/appContext";
 
 import Home from "./views/home";
-import { SingleCharacter } from "./views/SingleCharacter";
-import { SinglePlanet } from "./views/SinglePlanet";
-import { SingleStarship } from "./views/SingleStarship";
+import { DetailCharacter } from "./views/DetailCharacter";
+import { DetailPlanet } from "./views/DetailPlanet";
+import { DetailStarship } from "./views/DetailStarship";
 import { Navbar } from "./component/navbar";
 import { Footer } from "./component/footer";
 
@@ -24,13 +24,13 @@ const Layout = () => {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route
-              path="/SingleCharacter/:name/:id"
-              element={<SingleCharacter />}
+              path="/DetailCharacter/:name/:id"
+              element={<DetailCharacter />}
             />
-            <Route path="/SinglePlanet/:name/:id" element={<SinglePlanet />} />
+            <Route path="/DetailPlanet/:name/:id" element={<DetailPlanet />} />
             <Route
-              path="/SingleStarship/:name/:id"
-              element={<SingleStarship />}
+              path="/DetailStarship/:name/:id"
+              element={<DetailStarship />}
             />
             <Route path="*" element={<h1>404 Page not found!</h1>} />
           </Routes>

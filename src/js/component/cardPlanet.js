@@ -11,8 +11,8 @@ export const CardPlanet = (props) => {
     e.preventDefault();
     actions.addFavorite(props.namePlanet);
   }
-  function singlePlanet(e) {
-    actions.singlePlanet(props.idPlanet);
+  function DetailPlanet(e) {
+    actions.DetailPlanet(props.idPlanet);
   }
 
   return (
@@ -29,12 +29,12 @@ export const CardPlanet = (props) => {
           <p className="card-text m-0 p-0">Terrain:</p>
           <div className="d-flex justify-content-between">
             <Link
-              to={"/SinglePlanet/" + props.namePlanet + "/" + props.idPlanet}
+              to={"/DetailPlanet/" + props.namePlanet + "/" + props.idPlanet}
             >
               <button
                 href="#"
                 className="btn btn-outline-primary"
-                onClick={singlePlanet}
+                onClick={DetailPlanet}
               >
                 Learn more!
               </button>

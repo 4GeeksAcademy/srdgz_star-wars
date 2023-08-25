@@ -4,18 +4,18 @@ import { Link, useParams } from "react-router-dom";
 import { Context } from "../store/appContext";
 import "../../styles/home.css";
 
-export const SingleStarship = (props) => {
+export const DetailStarship = (props) => {
   const { store, actions } = useContext(Context);
   const params = useParams();
   useEffect(() => {
-    actions.singleStarship(params.idStarship);
+    actions.DetailStarship(params.idStarship);
   }, []);
 
   return (
     <div className="w-100 h-100">
       <div className="d-flex w-80 m-5 p-5 border-bottom border-danger">
         <img
-          src="https://i.blogs.es/7de56b/650_1200/1366_2000.jpeg"
+          src="https://lumiere-a.akamaihd.net/v1/images/starwars_e58d682b.png?region=0,14,768,432"
           className=""
           style={{ width: 450 }}
         />
@@ -60,22 +60,22 @@ export const SingleStarship = (props) => {
         </tr>
         <tr className="d-flex w-100 justify-content-center">
           <td className="col-1 text-danger mx-3 fs-5 text-center">
-            {store.singleStarship.name}
+            {store.DetailStarship.name}
           </td>
           <td className="col-1 text-danger mx-3 fs-5 text-center">
-            {store.singleStarship.model}
+            {store.DetailStarship.model}
           </td>
           <td className="col-1 text-danger mx-3 fs-5 text-center">
-            {store.singleStarship.manufacturer}
+            {store.DetailStarship.manufacturer}
           </td>
           <td className="col-1 text-danger mx-3 fs-5 text-center">
-            {store.singleStarship.crew}
+            {store.DetailStarship.crew}
           </td>
           <td className="col-1 text-danger mx-3 fs-5 text-center">
-            {store.singleStarship.passengers}
+            {store.DetailStarship.passengers}
           </td>
           <td className="col-1 text-danger mx-3 fs-5 text-center">
-            {store.singleStarship.starship_class}
+            {store.DetailStarship.starship_class}
           </td>
         </tr>
       </div>
@@ -95,6 +95,6 @@ export const SingleStarship = (props) => {
   );
 };
 
-SingleStarship.propTypes = {
+DetailStarship.propTypes = {
   match: PropTypes.object,
 };

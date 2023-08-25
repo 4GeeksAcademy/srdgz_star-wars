@@ -12,8 +12,8 @@ export const CardCharacter = (props) => {
     actions.addFavorite(props.name);
   }
 
-  function singleCharacter(e) {
-    actions.singleCharacter(props.id);
+  function DetailCharacter(e) {
+    actions.DetailCharacter(props.id);
   }
 
   return (
@@ -30,10 +30,10 @@ export const CardCharacter = (props) => {
           <p className="card-text m-0 p-0">Hair color:</p>
           <p className="card-text m-0 p-0">Eye-color:</p>
           <div className="d-flex justify-content-between">
-            <Link to={"/SingleCharacter/" + props.name + "/" + props.id}>
+            <Link to={"/DetailCharacter/" + props.name + "/" + props.id}>
               <button
                 href="#"
-                onClick={singleCharacter}
+                onClick={DetailCharacter}
                 className="btn btn-outline-primary"
               >
                 Learn more!
