@@ -22,7 +22,7 @@ export const CardPlanet = (props) => {
     <div className="card-container my-2">
       <div className="card m-3" style={{ width: 300 }}>
         <img
-          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSqh7hedjKnYPNr4V4fzhWfbAXj8GpVW3VP_w&usqp=CAU"
+          src="https://starwars-visualguide.com/assets/img/categories/planets.jpg"
           className="card-img-top"
           style={{ width: 300, height: 200 }}
         />

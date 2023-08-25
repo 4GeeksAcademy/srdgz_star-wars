@@ -22,7 +22,7 @@ export const CardCharacter = (props) => {
     <div className="card-container my-2">
       <div className="card m-3" style={{ width: 300 }}>
         <img
-          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQl8EsOSt7sJj7GSmaBp5PFYpH9KTfz2ZPbKw&usqp=CAU"
+          src="https://starwars-visualguide.com/assets/img/categories/character.jpg"
           className="card-img-top"
           style={{ width: 300, height: 200 }}
         />
