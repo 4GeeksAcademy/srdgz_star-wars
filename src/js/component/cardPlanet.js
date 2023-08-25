@@ -6,11 +6,14 @@ import { Context } from "../store/appContext.js";
 export const CardPlanet = (props) => {
   const { store, actions } = useContext(Context);
   const [state, setState] = useState({});
+  const [isFavorite, setIsFavorite] = useState(false);
 
   function sendFavorite(e) {
     e.preventDefault();
     actions.addFavorite(props.namePlanet);
+    setIsFavorite(true);
   }
+
   function DetailPlanet(e) {
     actions.DetailPlanet(props.idPlanet);
   }
@@ -42,7 +45,11 @@ export const CardPlanet = (props) => {
               href="#"
               className="btn btn-outline-warning"
             >
-              <i className="fa-regular fa-heart" />
+              {isFavorite ? (
+                <i className="fa-solid fa-heart"></i>
+              ) : (
+                <i className="fa-regular fa-heart"></i>
+              )}
             </a>
           </div>
         </div>

@@ -6,10 +6,12 @@ import { Context } from "../store/appContext.js";
 export const CardStarship = (props) => {
   const { store, actions } = useContext(Context);
   const [state, setState] = useState({});
+  const [isFavorite, setIsFavorite] = useState(false);
 
   function sendFavorite(e) {
     e.preventDefault();
     actions.addFavorite(props.nameStarship);
+    setIsFavorite(true);
   }
 
   function DetailStarship(e) {
@@ -45,7 +47,11 @@ export const CardStarship = (props) => {
               href="#"
               className="btn btn-outline-warning"
             >
-              <i className="fa-regular fa-heart" />
+              {isFavorite ? (
+                <i className="fa-solid fa-heart"></i>
+              ) : (
+                <i className="fa-regular fa-heart"></i>
+              )}
             </a>
           </div>
         </div>
