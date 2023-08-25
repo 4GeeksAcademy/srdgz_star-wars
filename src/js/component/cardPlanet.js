@@ -25,8 +25,6 @@ export const CardPlanet = (props) => {
         />
         <div className="card-body">
           <h5 className="card-title"> {props.namePlanet} </h5>
-          <p className="card-text m-0 p-0">Population:</p>
-          <p className="card-text m-0 p-0">Terrain:</p>
           <div className="d-flex justify-content-between">
             <Link
               to={"/DetailPlanet/" + props.namePlanet + "/" + props.idPlanet}

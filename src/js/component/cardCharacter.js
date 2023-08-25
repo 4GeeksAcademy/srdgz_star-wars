@@ -6,10 +6,12 @@ import { Context } from "../store/appContext.js";
 export const CardCharacter = (props) => {
   const { store, actions } = useContext(Context);
   const [state, setState] = useState({});
+  const [isFavorite, setIsFavorite] = useState(false);
 
   function sendFavorite(e) {
     e.preventDefault();
     actions.addFavorite(props.name);
+    setIsFavorite(true);
   }
 
   function DetailCharacter(e) {
@@ -26,9 +28,6 @@ export const CardCharacter = (props) => {
         />
         <div className="card-body">
           <h5 className="card-title">{props.name}</h5>
-          <p className="card-text m-0 p-0">Gender:</p>
-          <p className="card-text m-0 p-0">Hair color:</p>
-          <p className="card-text m-0 p-0">Eye-color:</p>
           <div className="d-flex justify-content-between">
             <Link to={"/DetailCharacter/" + props.name + "/" + props.id}>
               <button
@@ -44,7 +43,11 @@ export const CardCharacter = (props) => {
               href="#"
               className="btn btn-outline-warning"
             >
-              <i className="fa-regular fa-heart" />
+              {isFavorite ? (
+                <i className="fa-solid fa-heart"></i>
+              ) : (
+                <i className="fa-regular fa-heart"></i>
+              )}
             </a>
           </div>
         </div>

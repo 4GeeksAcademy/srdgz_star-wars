@@ -26,8 +26,6 @@ export const CardStarship = (props) => {
         />
         <div className="card-body">
           <h5 className="card-title"> {props.nameStarship} </h5>
-          <p className="card-text m-0 p-0">Crew:</p>
-          <p className="card-text m-0 p-0">Model:</p>
           <div className="d-flex justify-content-between">
             <Link
               to={
