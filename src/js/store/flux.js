@@ -1,3 +1,6 @@
+import { useEffect } from "react";
+import { json } from "react-router";
+
 const getState = ({ getStore, getActions, setStore }) => {
   return {
     store: {
@@ -29,9 +32,29 @@ const getState = ({ getStore, getActions, setStore }) => {
           .then((data) => setStore({ starship: data.results }))
           .catch((err) => console.log(err));
       },
+      getStorageFavorite: () => {
+        useEffect(() => {
+          const storageFavorite = localStorage.getItem("favoritesList");
+          if (storageFavorite) {
+            const favoritesList = JSON.parse(storageFavorite);
+            setStore({ favoritesList });
+          }
+        }, []);
+      },
       addFavorite: (nameFavorite) => {
+        const storeFavorite = localStorage.getItem("favoritesList");
+        const favoritesList = storeFavorite ? JSON.parse(storeFavorite) : [];
+        if (!favoritesList.includes(nameFavorite)) {
+          favoritesList.push(nameFavorite);
+        } else {
+          const newList = store.favoritesList.filter(
+            (item) => item !== nameFavorite
+          );
+          setStore({ favoritesList: newList });
+        }
+        localStorage.setItem("favoritesList", JSON.stringify(favoritesList));
         setStore({
-          favoritesList: getStore().favoritesList.concat(nameFavorite),
+          favoritesList,
         });
       },
       deleteFavorite: (nameFavorite) => {
