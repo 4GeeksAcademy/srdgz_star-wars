@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import "../../styles/home.css";
 import { Link } from "react-router-dom";
 import { Context } from "../store/appContext.js";
@@ -8,14 +8,13 @@ export const CardStarship = (props) => {
   const [state, setState] = useState({});
   const [isFavorite, setIsFavorite] = useState(false);
 
+  useEffect(() => {
+    setIsFavorite(store.favoritesList.includes(props.nameStarship));
+  }, [store.favoritesList]);
+
   function sendFavorite(e) {
     e.preventDefault();
     actions.addFavorite(props.nameStarship);
-    if (isFavorite == true) {
-      setIsFavorite(false);
-    } else {
-      setIsFavorite(true);
-    }
   }
 
   function DetailStarship(e) {

@@ -1,5 +1,4 @@
-import React, { useContext, useState } from "react";
-import "../../styles/home.css";
+import React, { useContext, useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Context } from "../store/appContext.js";
 
@@ -8,14 +7,13 @@ export const CardCharacter = (props) => {
   const [state, setState] = useState({});
   const [isFavorite, setIsFavorite] = useState(false);
 
+  useEffect(() => {
+    setIsFavorite(store.favoritesList.includes(props.name));
+  }, [store.favoritesList]);
+
   function sendFavorite(e) {
     e.preventDefault();
     actions.addFavorite(props.name);
-    if (isFavorite == true) {
-      setIsFavorite(false);
-    } else {
-      setIsFavorite(true);
-    }
   }
 
   function DetailCharacter(e) {

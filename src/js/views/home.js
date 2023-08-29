@@ -12,6 +12,7 @@ export default function Home() {
     actions.getCharacters();
     actions.getPlanets();
     actions.getStarships();
+    actions.getFavorites();
   }, []);
 
   return (
