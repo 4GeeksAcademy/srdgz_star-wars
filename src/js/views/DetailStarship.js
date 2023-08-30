@@ -16,7 +16,7 @@ export const DetailStarship = (props) => {
       <div className="d-flex w-80 m-5 p-5 border-bottom border-danger">
         <img
           src="https://lumiere-a.akamaihd.net/v1/images/starwars_e58d682b.png?region=0,14,768,432"
-          className=""
+          className="object-fit-cover"
           style={{ width: 450 }}
         />
         <div className="w-100 text-start px-3">

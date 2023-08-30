@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import ScrollToTop from "./component/scrollToTop";
 import injectContext from "./store/appContext";
+import ScrollToTop from "./component/scrollToTop";
 
 import Home from "./views/home";
 import { DetailCharacter } from "./views/DetailCharacter";

@@ -1,9 +1,9 @@
 import React, { useState, useEffect, useContext } from "react";
-import "../../styles/home.css";
 import { CardCharacter } from "../component/cardCharacter";
 import { CardPlanet } from "../component/cardPlanet";
 import { CardStarship } from "../component/cardStarship";
 import { Context } from "../store/appContext.js";
+import "../../styles/home.css";
 
 export default function Home() {
   const { store, actions } = useContext(Context);
@@ -18,7 +18,7 @@ export default function Home() {
   return (
     <div className="container">
       <div className="m-5 d-grid justify-content-center">
-        <h1 className="text-danger m-3">Characters</h1>
+        <h2 className="text-danger m-3">Characters</h2>
         <div
           id="chacarter-container"
           className="d-flex overflow-auto col-6 w-100"
@@ -29,7 +29,7 @@ export default function Home() {
         </div>
       </div>
       <div className="m-5 d-grid justify-content-center">
-        <h1 className="text-danger m-3">Planets</h1>
+        <h2 className="text-danger m-3">Planets</h2>
         <div id="planet-container" className="d-flex overflow-auto col-6 w-100">
           {store.planet.map((item, index) => (
             <CardPlanet
@@ -41,7 +41,7 @@ export default function Home() {
         </div>
       </div>
       <div className="m-5 d-grid justify-content-center">
-        <h1 className="text-danger m-3 ">Starships</h1>
+        <h2 className="text-danger m-3 ">Starships</h2>
         <div
           id="starship-container"
           className="d-flex overflow-auto col-6 w-100"

@@ -1,7 +1,7 @@
 import React, { useContext, useState, useEffect } from "react";
-import "../../styles/home.css";
 import { Link } from "react-router-dom";
 import { Context } from "../store/appContext.js";
+import "../../styles/home.css";
 
 export const CardPlanet = (props) => {
   const { store, actions } = useContext(Context);
@@ -30,7 +30,7 @@ export const CardPlanet = (props) => {
       <div className="card m-3" style={{ width: 300 }}>
         <img
           src="https://starwars-visualguide.com/assets/img/categories/planets.jpg"
-          className="card-img-top"
+          className="card-img-top object-fit-cover"
           style={{ width: 300, height: 200 }}
         />
         <div className="card-body">
