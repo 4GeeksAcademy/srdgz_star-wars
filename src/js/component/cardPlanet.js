@@ -14,7 +14,11 @@ export const CardPlanet = (props) => {
 
   function sendFavorite(e) {
     e.preventDefault();
-    actions.addFavorite(props.namePlanet);
+    if (isFavorite) {
+      actions.deleteFavorite(props.namePlanet);
+    } else {
+      actions.addFavorite(props.namePlanet);
+    }
   }
 
   function DetailPlanet(e) {

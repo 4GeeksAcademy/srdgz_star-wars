@@ -15,7 +15,7 @@ export const Navbar = () => {
   }
 
   return (
-    <nav className="navbar navbar-light bg-light mb-3">
+    <nav className="navbar navbar-light bg-light mb-3 sticky-top">
       <Link to="/">
         <span className="navbar-brand mx-5 my-3 h1">
           <img

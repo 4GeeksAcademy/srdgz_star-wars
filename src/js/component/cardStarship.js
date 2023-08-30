@@ -14,7 +14,11 @@ export const CardStarship = (props) => {
 
   function sendFavorite(e) {
     e.preventDefault();
-    actions.addFavorite(props.nameStarship);
+    if (isFavorite) {
+      actions.deleteFavorite(props.nameStarship);
+    } else {
+      actions.addFavorite(props.nameStarship);
+    }
   }
 
   function DetailStarship(e) {

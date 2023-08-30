@@ -13,7 +13,11 @@ export const CardCharacter = (props) => {
 
   function sendFavorite(e) {
     e.preventDefault();
-    actions.addFavorite(props.name);
+    if (isFavorite) {
+      actions.deleteFavorite(props.name);
+    } else {
+      actions.addFavorite(props.name);
+    }
   }
 
   function DetailCharacter(e) {
