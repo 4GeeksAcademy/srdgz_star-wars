@@ -11,9 +11,6 @@ export const CardCharacter = (props) => {
     setIsFavorite(store.favoritesList.includes(props.name));
   }, [store.favoritesList]);
 
-  useEffect(() => {
-    actions.DetailCharacter(props.id);
-  }, []);
 
   function sendFavorite(e) {
     e.preventDefault();
@@ -38,8 +35,8 @@ export const CardCharacter = (props) => {
         />
         <div className="card-body">
           <h5 className="card-title">{props.name}</h5>
-          <p>Gender: {store.DetailCharacter.gender}</p>
-          <p>Birth Year: {store.DetailCharacter.birth_year}</p>
+          <p>Gender: {props.gender}</p>
+          <p>Birth Year: {props.birth_year}</p>
           <div className="d-flex justify-content-between">
             <Link to={"/DetailCharacter/" + props.name + "/" + props.id}>
               <button
