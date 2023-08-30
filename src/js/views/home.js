@@ -24,7 +24,7 @@ export default function Home() {
           className="d-flex overflow-auto col-6 w-100"
         >
           {store.character.map((item, index) => (
-            <CardCharacter key={index} name={item.name} id={item.uid} />
+            <CardCharacter key={index} name={item.name} id={item.uid} gender={item.gender} birth_year={item.birth_year}/>
           ))}
         </div>
       </div>

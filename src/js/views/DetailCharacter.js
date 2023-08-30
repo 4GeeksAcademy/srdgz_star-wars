@@ -9,19 +9,19 @@ export const DetailCharacter = (props) => {
   const params = useParams();
   useEffect(() => {
     actions.DetailCharacter(params.id);
-  }, []);
+  }, [params.id]);
 
   return (
     <div className="w-100 h-100">
       <div className="d-flex w-80 m-5 p-5 border-bottom border-danger">
         <img
           src="https://lumiere-a.akamaihd.net/v1/images/starwars_e58d682b.png?region=0,14,768,432"
-          className=""
+          className="responsive-image "
           style={{ width: 450 }}
         />
 
         <div className="w-100 text-start px-3">
-          <h1 className="text-center">{params.name}</h1>
+          <h1 className="text-center">{store.DetailCharacter.name}</h1>
           <p className="me-2">
             There are many variations of passages of Lorem Ipsum available, but
             the majority have suffered alteration in some form, by injected

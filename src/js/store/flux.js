@@ -62,6 +62,7 @@ const getState = ({ getStore, getActions, setStore }) => {
         localStorage.setItem("favoritesList", JSON.stringify(newList));
       },
 
+     
       DetailCharacter: (idCharacter) => {
         fetch("https://www.swapi.tech/api/people/" + idCharacter)
           .then((response) => response.json())
