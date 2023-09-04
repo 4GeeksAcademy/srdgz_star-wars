@@ -3,14 +3,25 @@ import { useParams, Link } from "react-router-dom";
 
 import useAppContext from "../contexts/AppContext.jsx";
 
-import PeopleAllDetails from "../components/Card/components/PeopleAllDetails.jsx";
-
-const DetailPage = ({ resourceType, gender, birth_year }) => {
+const DetailPage = () => {
   const params = useParams();
   const { store } = useAppContext();
   const { people, planets, starships } = store;
   const allResources = [...people, ...planets, ...starships];
   const targetResource = allResources.find((items) => items.uid == params.uid);
+  const propertyNames = Object.keys(targetResource);
+  const excludedProperties = [
+    "created",
+    "edited",
+    "name",
+    "homeworld",
+    "url",
+    "pilots",
+    "uid",
+  ];
+  const filteredPropertyNames = propertyNames.filter(
+    (propertyName) => !excludedProperties.includes(propertyName)
+  );
   return (
     <div className="w-100 h-100">
       <div className="d-flex w-80 m-5 p-5 border-bottom border-danger">
@@ -34,6 +45,28 @@ const DetailPage = ({ resourceType, gender, birth_year }) => {
             PageMaker including versions of Lorem Ipsum.
           </p>
         </div>
+      </div>
+      <div className="container">
+        <table className="table">
+          <thead>
+            <tr>
+              {filteredPropertyNames.map((propertyName) => (
+                <th key={propertyName} className="text-danger text-center">
+                  <strong>{propertyName}</strong>
+                </th>
+              ))}
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              {filteredPropertyNames.map((propertyName) => (
+                <td key={propertyName} className="text-center">
+                  {targetResource[propertyName]}
+                </td>
+              ))}
+            </tr>
+          </tbody>
+        </table>
       </div>
       <Link to="/">
         <button type="button" className="btn btn-primary w-80 p-2 ms-5 my-5">
