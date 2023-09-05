@@ -25,7 +25,7 @@ const Dropdown = () => {
         >
           Favorites {counterFavorites()}
         </button>
-        <ul className="dropdown-menu">
+        <ul className="dropdown-menu p-3">
           {favorites.map((el) => {
             return (
               <li key={el.uid}>
@@ -34,7 +34,7 @@ const Dropdown = () => {
 
                   <button
                     type="button"
-                    className="btn-close"
+                    className="btn-close ps-4"
                     onClick={() => removeFromFavorites(el.uid)}
                   ></button>
                 </div>
