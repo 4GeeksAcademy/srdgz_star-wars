@@ -6,7 +6,7 @@ const Dropdown = () => {
   function counterFavorites() {
     favorites.length;
     if (favorites.length >= 1) return favorites.length;
-    else return "0";
+    else return 0;
   }
 
   const {
