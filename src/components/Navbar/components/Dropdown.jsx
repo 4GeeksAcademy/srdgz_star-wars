@@ -26,21 +26,25 @@ const Dropdown = () => {
           Favorites {counterFavorites()}
         </button>
         <ul className="dropdown-menu p-3">
-          {favorites.map((el) => {
-            return (
-              <li key={el.uid}>
-                <div className="d-flex justify-content-between">
-                  {el?.name}
+          {favorites?.length ? (
+            favorites.map((el) => {
+              return (
+                <li key={el.uid}>
+                  <div className="d-flex justify-content-between">
+                    {el?.name}
 
-                  <button
-                    type="button"
-                    className="btn-close ps-4"
-                    onClick={() => removeFromFavorites(el.uid)}
-                  ></button>
-                </div>
-              </li>
-            );
-          })}
+                    <button
+                      type="button"
+                      className="btn-close ps-4"
+                      onClick={() => removeFromFavorites(el.uid)}
+                    ></button>
+                  </div>
+                </li>
+              );
+            })
+          ) : (
+            <li>Empty</li>
+          )}
         </ul>
       </div>
     </div>

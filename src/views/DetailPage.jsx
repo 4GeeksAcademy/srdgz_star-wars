@@ -3,12 +3,19 @@ import { useParams, Link } from "react-router-dom";
 
 import useAppContext from "../contexts/AppContext.jsx";
 
+import classes from "./HomePage.module.css";
+
 const DetailPage = () => {
   const params = useParams();
   const { store } = useAppContext();
-  const { people, planets, starships } = store;
+  const { people, planets, starships, isLoading } = store;
   const allResources = [...people, ...planets, ...starships];
   const targetResource = allResources.find((items) => items.uid == params.uid);
+
+  if (isLoading) {
+    return <div className={classes.loader}></div>;
+  }
+
   const propertyNames = Object.keys(targetResource);
   const excludedProperties = [
     "created",
@@ -19,16 +26,18 @@ const DetailPage = () => {
     "pilots",
     "uid",
   ];
+
   const transformPropertyName = (name) => {
     return name.toUpperCase().replace(/_/g, " ");
   };
   const filteredPropertyNames = propertyNames.filter(
     (propertyName) => !excludedProperties.includes(propertyName)
   );
+
   return (
     <div className="w-100 h-100">
       <div className="container">
-        <div className="row">
+        <div className="row row-col-md-2 rows-cols-2">
           <div className="col m-5 text-center">
             <img
               src="https://lumiere-a.akamaihd.net/v1/images/starwars_e58d682b.png?region=0,14,768,432"
