@@ -24,7 +24,10 @@ const Card = ({
   } = useAppContext();
   const isFavorite = favorites.some((items) => items.uid === uid);
   return (
-    <div className="card" style={{ minWidth: "18rem" }}>
+    <div
+      className="card text-bg-dark border-light"
+      style={{ minWidth: "18rem" }}
+    >
       {resourceType === "people" && (
         <img
           src="https://starwars-visualguide.com/assets/img/categories/character.jpg"
@@ -61,7 +64,7 @@ const Card = ({
           <StarshipsDetails model={model} starship_class={starship_class} />
         )}
         <div className="d-flex justify-between">
-          <Link to={`/${uid}`} className="btn btn-outline-secondary">
+          <Link to={`/${uid}`} className="btn btn-outline-light">
             Learn more!
           </Link>
           <button
