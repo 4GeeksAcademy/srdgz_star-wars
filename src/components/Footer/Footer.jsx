@@ -1,7 +1,7 @@
 import React from "react";
 
 const Footer = () => (
-  <footer className="footer bg-light mt-auto py-3 text-center">
+  <footer className="footer bg-dark mt-auto py-3 text-center text-white border-top border-dark-subtle">
     <p>
       Trabajo realizado por Noé, Johanna y Sandra
       <br />

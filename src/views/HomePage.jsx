@@ -12,9 +12,9 @@ const HomePage = () => {
   }
   return (
     <main className="container">
-      <Section resourceType="people" target="people" />
-      <Section resourceType="planets" target="planets" />
-      <Section resourceType="starships" target="starships" />
+      <Section resourceType="people" target="people" title="Characters" />
+      <Section resourceType="planets" target="planets" title="Planets" />
+      <Section resourceType="starships" target="starships" title="Starships" />
     </main>
   );
 };

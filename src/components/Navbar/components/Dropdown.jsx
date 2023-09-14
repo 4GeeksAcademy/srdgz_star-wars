@@ -17,13 +17,13 @@ const Dropdown = () => {
     <div className="ms-auto">
       <div className="dropdown">
         <button
-          className="btn btn-primary dropdown-toggle mx-5 my-3"
+          className="btn btn-dark dropdown-toggle mx-5 my-3 fw-bold"
           type="button"
           data-bs-toggle="dropdown"
           data-bs-auto-close="outside"
           aria-expanded="false"
         >
-          Favorites {counterFavorites()}
+          FAVORITES {counterFavorites()}
         </button>
         <ul className="dropdown-menu p-3">
           {favorites?.length ? (

@@ -50,7 +50,7 @@ const Card = ({
         />
       )}
       <div className="card-body">
-        <h5 className="card-title">{name}</h5>
+        <h5 className="card-title fw-bold">{name}</h5>
         {resourceType === "people" && (
           <PeopleDetails gender={gender} birth_year={birth_year} />
         )}
@@ -61,12 +61,12 @@ const Card = ({
           <StarshipsDetails model={model} starship_class={starship_class} />
         )}
         <div className="d-flex justify-between">
-          <Link to={`/${uid}`} className="btn btn-primary block">
+          <Link to={`/${uid}`} className="btn btn-outline-secondary">
             Learn more!
           </Link>
           <button
             type="button"
-            className="btn btn-outline-warning ms-auto"
+            className="btn btn-outline-danger ms-auto"
             onClick={
               isFavorite
                 ? () => removeFromFavorites(uid)

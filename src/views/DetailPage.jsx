@@ -34,20 +34,36 @@ const DetailPage = () => {
     (propertyName) => !excludedProperties.includes(propertyName)
   );
 
+  let resourceType;
+  let resourceImage = "";
+  if (people.find((person) => person.uid == params.uid)) {
+    resourceType = "people";
+    resourceImage =
+      "https://starwars-visualguide.com/assets/img/characters/13.jpg";
+  } else if (planets.find((planet) => planet.uid == params.uid)) {
+    resourceType = "planets";
+    resourceImage = "https://starwars-visualguide.com/assets/img/planets/8.jpg";
+  } else {
+    resourceType = "starships";
+    resourceImage =
+      "https://starwars-visualguide.com/assets/img/starships/10.jpg";
+  }
+
   return (
     <div className="w-100 h-100">
       <div className="container">
-        <div className="row row-col-md-2 rows-cols-2">
+        <div className="row row-col-md-2 rows-cols-2 my-5 p-3 border border-dark-subtle rounded">
           <div className="col m-5 text-center">
             <img
-              src="https://lumiere-a.akamaihd.net/v1/images/starwars_e58d682b.png?region=0,14,768,432"
+              src={resourceImage}
               className="img-fluid"
-              style={{ width: 450 }}
+              style={{ maxWidth: 450 }}
+              alt={resourceType}
             />
           </div>
           <div className="col text-start m-5">
-            <h1 className="text-center">{targetResource.name}</h1>
-            <p className="me-2">
+            <h1 className="text-center text-white">{targetResource.name}</h1>
+            <p className="me-2 text-white">
               Lorem Ipsum is simply dummy text of the printing and typesetting
               industry. Lorem Ipsum has been the industry's standard dummy text
               ever since the 1500s, when an unknown printer took a galley of
@@ -60,36 +76,40 @@ const DetailPage = () => {
               Lorem Ipsum.
             </p>
           </div>
+          <div className="container table-sm table-responsive-lg">
+            <table className="table table-dark">
+              <thead>
+                <tr>
+                  {filteredPropertyNames.map((propertyName) => (
+                    <th
+                      key={propertyName}
+                      className="text-white text-center align-middle"
+                    >
+                      <strong>{transformPropertyName(propertyName)}</strong>
+                    </th>
+                  ))}
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  {filteredPropertyNames.map((propertyName) => (
+                    <td key={propertyName} className="text-center text-white">
+                      {targetResource[propertyName]}
+                    </td>
+                  ))}
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
-      <div className="border-bottom border-danger mb-5"></div>
-      <div className="container">
-        <table className="table">
-          <thead>
-            <tr>
-              {filteredPropertyNames.map((propertyName) => (
-                <th key={propertyName} className="text-danger text-center">
-                  <strong>{transformPropertyName(propertyName)}</strong>
-                </th>
-              ))}
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              {filteredPropertyNames.map((propertyName) => (
-                <td key={propertyName} className="text-center">
-                  {targetResource[propertyName]}
-                </td>
-              ))}
-            </tr>
-          </tbody>
-        </table>
+      <div className="d-flex justify-content-end">
+        <Link to="/">
+          <button type="button" className="btn btn-outline-light m-5">
+            Go back!
+          </button>
+        </Link>
       </div>
-      <Link to="/">
-        <button type="button" className="btn btn-primary w-80 p-2 ms-5 my-5">
-          Go back!
-        </button>
-      </Link>
     </div>
   );
 };
