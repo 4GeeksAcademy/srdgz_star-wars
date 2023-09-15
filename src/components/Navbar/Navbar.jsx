@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 import Dropdown from "./components/Dropdown.jsx";
+import Login from "./components/Login.jsx";
 
 const Navbar = () => {
   return (
@@ -17,6 +18,7 @@ const Navbar = () => {
             />
           </span>
         </Link>
+        <Login />
         <Dropdown />
       </div>
     </nav>

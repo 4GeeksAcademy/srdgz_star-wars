@@ -14,10 +14,10 @@ const Dropdown = () => {
     actions: { removeFromFavorites },
   } = useAppContext();
   return (
-    <div className="ms-auto">
+    <div className="">
       <div className="dropdown">
         <button
-          className="btn btn-dark dropdown-toggle mx-5 my-3 fw-bold"
+          className="btn btn-dark dropdown-toggle me-5 my-3 fw-bold"
           type="button"
           data-bs-toggle="dropdown"
           data-bs-auto-close="outside"
