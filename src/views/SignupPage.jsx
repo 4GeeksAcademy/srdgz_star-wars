@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
-const SingupPage = () => {
+const SignupPage = () => {
   const emailPattern = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
   const passwordPattern = /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d).{8,}$/;
 
@@ -47,7 +47,7 @@ const SingupPage = () => {
         <div className="col-md-6">
           <div className="card">
             <div className="card-body">
-              <h2 className="card-title text-center my-5">Sing Up</h2>
+              <h2 className="card-title text-center my-5">Sign Up</h2>
               <form onSubmit={handleSubmit}>
                 <div className="mb-5">
                   <input
@@ -110,7 +110,7 @@ const SingupPage = () => {
                     type="submit"
                     className="btn btn-warning w-60 fw-bold px-5 py-2"
                   >
-                    SING UP
+                    SIGN UP
                   </button>
                 </div>
               </form>
@@ -134,4 +134,4 @@ const SingupPage = () => {
   );
 };
 
-export default SingupPage;
+export default SignupPage;
